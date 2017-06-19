@@ -1,14 +1,33 @@
-import React from 'react';
-import { shallow } from 'enzyme';
 import Payment from '../../main/views/payment';
 
-test('should have a nickel, dime and quarter button so that the user can give the machine that amount of money', () => {
-  const payment = shallow(<Payment />);
-  const dime = <button type="button">Dime</button>;
-  const nickel = <button type="button">Nickel</button>;
-  const quarter = <button type="button">Quarter</button>;
+import React from 'react';
+import { shallow } from 'enzyme';
 
-  expect(payment.contains(nickel)).toEqual(true);
-  expect(payment.contains(dime)).toEqual(true);
-  expect(payment.contains(quarter)).toEqual(true);
+test('should have 3 buttons', () => {
+  const payment = shallow(<Payment />);
+  expect(payment.find('button[type="button"]')).toHaveLength(3);
+});
+
+test('should have a nickel', () => {
+  const payment = shallow(<Payment />);
+  const nickel = payment.find('#nickel');
+
+  expect(nickel).toHaveLength(1);
+  expect(nickel.text()).toBe('Nickel');
+});
+
+test('should have a dime', () => {
+  const payment = shallow(<Payment />);
+  const dime = payment.find('#dime');
+
+  expect(dime).toHaveLength(1);
+  expect(dime.text()).toBe('Dime');
+});
+
+test('should have a quarter', () => {
+  const payment = shallow(<Payment />);
+  const quarter = payment.find('#quarter');
+
+  expect(quarter).toHaveLength(1);
+  expect(quarter.text()).toBe('Quarter');
 });
