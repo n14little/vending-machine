@@ -5,7 +5,11 @@ const acceptableCoins = {
 };
 
 export default {
-  insert(coin) {
-    return acceptableCoins[coin];
+  insert(coin, currentAmount = 0) {
+    const amountToAdd = acceptableCoins[coin];
+
+    if (amountToAdd) {
+      return parseFloat((amountToAdd + currentAmount).toPrecision(2));
+    }
   }
 };
