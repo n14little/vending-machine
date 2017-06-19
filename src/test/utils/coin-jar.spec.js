@@ -11,3 +11,7 @@ test('the coin jar accepts dimes', () => {
 test('the coin jar accepts quarters', () => {
   expect(coinJar.insert('quarter')).toBe(0.25);
 });
+
+test('the coin jar does not accept pennies', () => {
+  expect(coinJar.insert('penny')).toBe(undefined);
+});
