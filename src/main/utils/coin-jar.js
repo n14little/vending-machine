@@ -1,5 +1,8 @@
 export default {
-  insert() {
-    return 0.05;
+  insert(coin) {
+    if (coin === 'nickel') {
+      return 0.05;
+    }
+    return 0.1;
   }
 }
