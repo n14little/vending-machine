@@ -1,11 +1,11 @@
+const acceptableCoins = {
+  nickel: 0.05,
+  dime: 0.1,
+  quarter: 0.25
+};
+
 export default {
   insert(coin) {
-    if (coin === 'nickel') {
-      return 0.05;
-    } else if (coin === 'dime') {
-      return 0.1;
-    } else if (coin === 'quarter') {
-      return 0.25;
-    }
+    return acceptableCoins[coin];
   }
-}
+};
