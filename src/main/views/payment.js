@@ -4,6 +4,7 @@ class Payment extends Component {
   render() {
     return (
       <div>
+        <p>INSERT COIN</p>
         <button id="nickel" type="button">Nickel</button>
         <button id="dime" type="button">Dime</button>
         <button id="quarter" type="button">Quarter</button>

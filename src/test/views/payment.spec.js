@@ -31,3 +31,11 @@ test('should have a quarter', () => {
   expect(quarter).toHaveLength(1);
   expect(quarter.text()).toBe('Quarter');
 });
+
+test('should display insert coin when no coins have been inserted', () => {
+  const payment = shallow(<Payment />);
+  const insertCoins = payment.find('p');
+
+  expect(insertCoins).toHaveLength(1);
+  expect(insertCoins.text()).toBe('INSERT COIN');
+});
