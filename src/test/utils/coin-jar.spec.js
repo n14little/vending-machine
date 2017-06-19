@@ -7,3 +7,7 @@ test('the coin jar accepts nickels', () => {
 test('the coin jar accepts dimes', () => {
   expect(coinJar.insert('dime')).toBe(0.1);
 });
+
+test('the coin jar accepts quarters', () => {
+  expect(coinJar.insert('quarter')).toBe(0.25);
+});
