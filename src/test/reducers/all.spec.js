@@ -3,7 +3,7 @@ import all from '../../main/reducers/all';
 test('default state', () => {
   const expectedState = {};
 
-  const actualState = all(undefined, {});
+  const actualState = all.reduce(undefined, {});
   expect(actualState).toEqual(expectedState);
 });
 
@@ -16,6 +16,6 @@ test('cannot find action returns state given', () => {
     type: 'bogus'
   };
 
-  const actualState = all(givenState, action);
+  const actualState = all.reduce(givenState, action);
   expect(actualState).toBe(givenState);
 });
