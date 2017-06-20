@@ -3,39 +3,42 @@ import Payment from '../../main/views/payment';
 import React from 'react';
 import { shallow } from 'enzyme';
 
-test('should have 3 buttons', () => {
-  const payment = shallow(<Payment />);
-  expect(payment.find('button[type="button"]')).toHaveLength(3);
-});
+describe('Payment', () => {
+  let payment;
 
-test('should have a nickel', () => {
-  const payment = shallow(<Payment />);
-  const nickel = payment.find('#nickel');
+  beforeEach(() => {
+    payment = shallow(<Payment />);
+  });
 
-  expect(nickel).toHaveLength(1);
-  expect(nickel.text()).toBe('Nickel');
-});
+  test('should have 3 buttons', () => {
+    expect(payment.find('button[type="button"]')).toHaveLength(3);
+  });
 
-test('should have a dime', () => {
-  const payment = shallow(<Payment />);
-  const dime = payment.find('#dime');
+  test('should have a nickel', () => {
+    const nickel = payment.find('#nickel');
 
-  expect(dime).toHaveLength(1);
-  expect(dime.text()).toBe('Dime');
-});
+    expect(nickel).toHaveLength(1);
+    expect(nickel.text()).toBe('Nickel');
+  });
 
-test('should have a quarter', () => {
-  const payment = shallow(<Payment />);
-  const quarter = payment.find('#quarter');
+  test('should have a dime', () => {
+    const dime = payment.find('#dime');
 
-  expect(quarter).toHaveLength(1);
-  expect(quarter.text()).toBe('Quarter');
-});
+    expect(dime).toHaveLength(1);
+    expect(dime.text()).toBe('Dime');
+  });
 
-test('should display insert coin when no coins have been inserted', () => {
-  const payment = shallow(<Payment />);
-  const insertCoins = payment.find('p');
+  test('should have a quarter', () => {
+    const quarter = payment.find('#quarter');
 
-  expect(insertCoins).toHaveLength(1);
-  expect(insertCoins.text()).toBe('INSERT COIN');
+    expect(quarter).toHaveLength(1);
+    expect(quarter.text()).toBe('Quarter');
+  });
+
+  test('should display insert coin when no coins have been inserted', () => {
+    const insertCoins = payment.find('p');
+
+    expect(insertCoins).toHaveLength(1);
+    expect(insertCoins.text()).toBe('INSERT COIN');
+  });
 });
