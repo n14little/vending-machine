@@ -1,5 +1,8 @@
-const all = (state = {}) => {
-  return state;
+const all = (state = {}, action) => {
+  switch (action.type) {
+    default:
+      return state;
+  }
 };
 
 export default all;
