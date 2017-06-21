@@ -13,6 +13,8 @@ chai.should();
 let sandbox = sinon.sandbox.create();
 
 test('app should have a Payment component', () => {
-  const app = shallow(<App />);
-  app.contains(<Payment />).should.equal(true);
+  const dispatch = 'fake dispatch';
+  const currentBalance = 0;
+  const app = shallow(<App dispatch={dispatch} currentBalance={currentBalance}/>);
+  app.contains(<Payment currentBalance={currentBalance} dispatch={dispatch}/>).should.equal(true);
 });

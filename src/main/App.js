@@ -8,7 +8,7 @@ export class App extends Component {
   render() {
     return (
       <div className="App">
-        <Payment />
+        <Payment currentBalance={this.props.currentBalance} dispatch={this.props.dispatch}/>
       </div>
     );
   }
