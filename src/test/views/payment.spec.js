@@ -43,4 +43,12 @@ describe('Payment', () => {
     insertCoins.should.have.lengthOf(1);
     insertCoins.text().should.equal('INSERT COIN');
   });
+
+  test('should display current balance when there is one', () => {
+    const paymentWithBalance = shallow(<Payment currentBalance={0.05}/>);
+    const coinText = paymentWithBalance.find('p');
+
+    coinText.should.have.lengthOf(1);
+    coinText.text().should.equal('$0.05');
+  });
 });
