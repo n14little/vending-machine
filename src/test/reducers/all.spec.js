@@ -36,3 +36,14 @@ test('should add new balance to current balance on coin insertion', () => {
   const actualState = all.reduce(givenState, action);
   actualState.currentBalance.should.be.closeTo(0.15, .001)
 });
+
+test('should handle when current a balance hasn\'t been added', () => {
+  const action = {
+    type: 'INSERT_COIN',
+    amount: 0.05
+  };
+
+  const actualState = all.reduce(undefined, action);
+
+  actualState.currentBalance.should.equal(0.05);
+});
