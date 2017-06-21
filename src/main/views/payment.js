@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import numeral from 'numeral';
 
 function getCurrentBalance(currentBalance) {
-  return currentBalance ? `$${currentBalance}` : 'INSERT COIN';
+  return currentBalance ? numeral(currentBalance).format('$0.00') : 'INSERT COIN';
 }
 
 class Payment extends Component {

@@ -45,10 +45,11 @@ describe('Payment', () => {
   });
 
   test('should display current balance when there is one', () => {
-    const paymentWithBalance = shallow(<Payment currentBalance={0.05}/>);
+    const currentBalance = 0.1500000000000000000000000000002;
+    const paymentWithBalance = shallow(<Payment currentBalance={currentBalance}/>);
     const coinText = paymentWithBalance.find('p');
 
     coinText.should.have.lengthOf(1);
-    coinText.text().should.equal('$0.05');
+    coinText.text().should.equal('$0.15');
   });
 });
