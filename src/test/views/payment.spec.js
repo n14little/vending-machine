@@ -2,14 +2,21 @@ import Payment from '../../main/views/payment';
 
 import React from 'react';
 import { shallow } from 'enzyme';
+import sinon from 'sinon';
+import sinonChai from 'sinon-chai';
 import chai from 'chai';
 chai.should();
+chai.use(sinonChai);
+
+let sandbox = sinon.sandbox.create();
 
 describe('Payment', () => {
-  let payment;
+  let payment,
+      dispatch;
 
   beforeEach(() => {
-    payment = shallow(<Payment />);
+    dispatch = sandbox.stub();
+    payment = shallow(<Payment dispatch={dispatch}/>);
   });
 
   test('should have 3 buttons', () => {
@@ -46,10 +53,20 @@ describe('Payment', () => {
 
   test('should display current balance when there is one', () => {
     const currentBalance = 0.1500000000000000000000000000002;
-    const paymentWithBalance = shallow(<Payment currentBalance={currentBalance}/>);
+    const paymentWithBalance = shallow(<Payment currentBalance={currentBalance} dispatch={dispatch}/>);
     const coinText = paymentWithBalance.find('p');
 
     coinText.should.have.lengthOf(1);
     coinText.text().should.equal('$0.15');
+  });
+
+  test('should add 5 cents when nickel button clicked', () => {
+    const nickel = payment.find('#nickel');
+    nickel.simulate('click');
+
+    dispatch.should.have.been.calledWith({
+      type: 'INSERT_COIN',
+      amount: 0.05
+    });
   });
 });
