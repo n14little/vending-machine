@@ -1,3 +1,14 @@
+## Install
+`git clone https://github.com/n14little/vending-machine.git`
+
+`npm install` or `yarn`
+
+## Test
+`npm run test` or `yarn run test` will run tests in an interactive mode.
+- If you don't want to run in interactive mode just set an environment variable of CI = true and run the same command. i.e `export CI=true`
+
+## Run
+`npm run start` or `yarn run start`
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
