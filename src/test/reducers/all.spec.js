@@ -1,10 +1,13 @@
 import all from '../../main/reducers/all';
+import chai from 'chai';
+
+chai.should();
 
 test('default state', () => {
   const expectedState = {};
 
   const actualState = all.reduce(undefined, {});
-  expect(actualState).toEqual(expectedState);
+  actualState.should.deep.equal(expectedState);
 });
 
 test('cannot find action returns state given', () => {
@@ -17,5 +20,5 @@ test('cannot find action returns state given', () => {
   };
 
   const actualState = all.reduce(givenState, action);
-  expect(actualState).toBe(givenState);
+  actualState.should.equal(givenState);
 });

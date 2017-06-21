@@ -2,6 +2,8 @@ import Payment from '../../main/views/payment';
 
 import React from 'react';
 import { shallow } from 'enzyme';
+import chai from 'chai';
+chai.should();
 
 describe('Payment', () => {
   let payment;
@@ -11,34 +13,34 @@ describe('Payment', () => {
   });
 
   test('should have 3 buttons', () => {
-    expect(payment.find('button[type="button"]')).toHaveLength(3);
+    payment.find('button[type="button"]').should.have.lengthOf(3);
   });
 
   test('should have a nickel', () => {
     const nickel = payment.find('#nickel');
 
-    expect(nickel).toHaveLength(1);
-    expect(nickel.text()).toBe('Nickel');
+    nickel.should.have.lengthOf(1);
+    nickel.text().should.equal('Nickel');
   });
 
   test('should have a dime', () => {
     const dime = payment.find('#dime');
 
-    expect(dime).toHaveLength(1);
-    expect(dime.text()).toBe('Dime');
+    dime.should.have.lengthOf(1);
+    dime.text().should.equal('Dime');
   });
 
   test('should have a quarter', () => {
     const quarter = payment.find('#quarter');
 
-    expect(quarter).toHaveLength(1);
-    expect(quarter.text()).toBe('Quarter');
+    quarter.should.have.lengthOf(1);
+    quarter.text().should.equal('Quarter');
   });
 
   test('should display insert coin when no coins have been inserted', () => {
     const insertCoins = payment.find('p');
 
-    expect(insertCoins).toHaveLength(1);
-    expect(insertCoins.text()).toBe('INSERT COIN');
+    insertCoins.should.have.lengthOf(1);
+    insertCoins.text().should.equal('INSERT COIN');
   });
 });

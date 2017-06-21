@@ -8,6 +8,8 @@ import { Provider } from 'react-redux';
 import * as redux from 'redux';
 
 import sinon from 'sinon';
+import chai from 'chai';
+chai.should();
 let sandbox = sinon.sandbox.create();
 
 describe('provider', () => {
@@ -31,21 +33,22 @@ describe('provider', () => {
 
   test('should create react-redux provider', () => {
     const init = shallow(<Init />);
-    expect(init.find(Provider)).toHaveLength(1);
+    init.find(Provider).should.have.lengthOf(1);
   });
 
   test('should create provider with a store', () => {
     const init = shallow(<Init />);
     const provider = init.find(Provider);
+    const actualStore = provider.props().store;
 
-    expect(provider.props().store).toBe(store);
+    actualStore.should.equal(store);
   });
 
   test('should create provider with our app', () => {
     const init = shallow(<Init />);
     const provider = init.find(Provider);
 
-    expect(provider.children()).toHaveLength(1);
-    expect(provider.children(App)).toHaveLength(1);
+    provider.children().should.have.lengthOf(1);
+    provider.children(App).should.have.lengthOf(1);
   });
 });
