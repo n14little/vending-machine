@@ -69,4 +69,24 @@ describe('Payment', () => {
       amount: 0.05
     });
   });
+
+  test('should add 10 cents when dime button clicked', () => {
+    const dime = payment.find('#dime');
+    dime.simulate('click');
+
+    dispatch.should.have.been.calledWith({
+      type: 'INSERT_COIN',
+      amount: 0.1
+    });
+  });
+
+  test('should add 25 cents when quarter button clicked', () => {
+    const quarter = payment.find('#quarter');
+    quarter.simulate('click');
+
+    dispatch.should.have.been.calledWith({
+      type: 'INSERT_COIN',
+      amount: 0.25
+    });
+  });
 });
