@@ -6,9 +6,10 @@ import { connect } from 'react-redux';
 
 export class App extends Component {
   render() {
+    const { currentBalance, dispatch } = this.props;
     return (
       <div className="App">
-        <Payment currentBalance={this.props.currentBalance} dispatch={this.props.dispatch}/>
+        <Payment currentBalance={currentBalance} dispatch={dispatch}/>
       </div>
     );
   }
