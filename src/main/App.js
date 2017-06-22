@@ -10,7 +10,7 @@ export class App extends Component {
     const { currentBalance, dispatch } = this.props;
     return (
       <div className="App">
-        <Products />
+        <Products dispatch={dispatch}/>
         <Payment currentBalance={currentBalance} dispatch={dispatch}/>
       </div>
     );

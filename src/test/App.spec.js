@@ -18,5 +18,5 @@ test('app should have a Products component', () => {
   const dispatch = 'fake dispatch';
   const currentBalance = 0;
   const app = shallow(<App dispatch={dispatch} currentBalance={currentBalance}/>);
-  app.contains(<Products />).should.equal(true);
+  app.contains(<Products dispatch={dispatch}/>).should.equal(true);
 });
