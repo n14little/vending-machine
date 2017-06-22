@@ -1,4 +1,5 @@
 import Payment from './views/payment';
+import Products from './views/products';
 import '../css/App.css';
 
 import React, { Component } from 'react';
@@ -9,11 +10,12 @@ export class App extends Component {
     const { currentBalance, dispatch } = this.props;
     return (
       <div className="App">
+        <Products />
         <Payment currentBalance={currentBalance} dispatch={dispatch}/>
       </div>
     );
   }
-}
+};
 
 const getState = (state) => state;
 
