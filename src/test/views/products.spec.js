@@ -1,4 +1,5 @@
 import Products from '../../main/views/products';
+import actions from '../../main/constants/actions';
 
 import React from 'react';
 import { shallow } from 'enzyme';
@@ -35,7 +36,7 @@ test('cola button should dispatch PURCHASE with product and price', () => {
 
   dispatch.should.have.been.calledOnce;
   dispatch.should.have.been.calledWith({
-    type: 'PURCHASE',
+    type: actions.PURCHASE,
     item: {
       name: 'Cola',
       value: 1.00
@@ -50,7 +51,7 @@ test('chips button should dispatch PURCHASE with product and price', () => {
 
   dispatch.should.have.been.calledOnce;
   dispatch.should.have.been.calledWith({
-    type: 'PURCHASE',
+    type: actions.PURCHASE,
     item: {
       name: 'Chips',
       value: 0.50
@@ -65,7 +66,7 @@ test('candy button should dispatch PURCHASE with product and price', () => {
 
   dispatch.should.have.been.calledOnce;
   dispatch.should.have.been.calledWith({
-    type: 'PURCHASE',
+    type: actions.PURCHASE,
     item: {
       name: 'Candy',
       value: 0.65

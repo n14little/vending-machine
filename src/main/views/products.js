@@ -1,3 +1,5 @@
+import actions from '../constants/actions';
+
 import React from 'react';
 import numeral from 'numeral';
 
@@ -12,7 +14,7 @@ const items = {
 
 const clickHandler = (dispatch, item) => {
   dispatch({
-    type: 'PURCHASE',
+    type: actions.PURCHASE,
     item: item
   });
 };
@@ -22,7 +24,7 @@ const Products = (props) => {
   const colaText = `Cola - ${numeral(colaValue).format('$0.00')}`;
   const chipsText = `Chips - ${numeral(chipsValue).format('$0.00')}`;
   const candyText = `Candy - ${numeral(candyValue).format('$0.00')}`;
-  
+
   return (
     <div>
       <button id="cola" type="button" onClick={clickHandler.bind(this, dispatch, items.cola)}>{colaText}</button>

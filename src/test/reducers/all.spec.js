@@ -55,7 +55,7 @@ test('should handle when an item has been purchased', () => {
   };
 
   const action = {
-    type: 'PURCHASE',
+    type: actions.PURCHASE,
     item: {
       name: 'Cola',
       value: 1.00

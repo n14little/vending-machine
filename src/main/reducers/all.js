@@ -7,7 +7,7 @@ const reduce = (state = {}, action) => {
       return Object.assign({}, state, {
         currentBalance: currentBalance + action.amount
       });
-    case 'PURCHASE':
+    case actions.PURCHASE:
       return Object.assign({}, state, {
         purchase: {
           name: action.item.name,
