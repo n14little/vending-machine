@@ -1,27 +1,30 @@
 import actions from '../constants/actions';
 
-import React, { Component } from 'react';
+import React from 'react';
 import numeral from 'numeral';
 
-function getCurrentBalance(currentBalance) {
-  return currentBalance ? numeral(currentBalance).format('$0.00') : 'INSERT COIN';
-}
+const nickel = 0.05;
+const dime = 0.1;
+const quarter = 0.25;
 
-class Payment extends Component {
-  render() {
-    const { dispatch } = this.props;
-    const onClick = (dispatch, amount) => {
-      dispatch({ type: actions.INSERT_COIN, amount: amount})
-    };
-    return (
-      <div>
-        <p>{getCurrentBalance(this.props.currentBalance)}</p>
-        <button id="nickel" type="button" onClick={onClick.bind(this, dispatch, 0.05)}>Nickel</button>
-        <button id="dime" type="button" onClick={onClick.bind(this, dispatch, 0.1)}>Dime</button>
-        <button id="quarter" type="button" onClick={onClick.bind(this, dispatch, 0.25)}>Quarter</button>
-      </div>
-    );
-  }
-}
+const getCurrentBalance = (currentBalance) => {
+  return currentBalance ? numeral(currentBalance).format('$0.00') : 'INSERT COIN';
+};
+
+const onClick = (dispatch, amount) => {
+  dispatch({ type: actions.INSERT_COIN, amount: amount})
+};
+
+const Payment = (props) => {
+  const { dispatch } = props;
+  return (
+    <div>
+      <p>{getCurrentBalance(props.currentBalance)}</p>
+      <button id="nickel" type="button" onClick={onClick.bind(this, dispatch, nickel)}>Nickel</button>
+      <button id="dime" type="button" onClick={onClick.bind(this, dispatch, dime)}>Dime</button>
+      <button id="quarter" type="button" onClick={onClick.bind(this, dispatch, quarter)}>Quarter</button>
+    </div>
+  );
+};
 
 export default Payment;
