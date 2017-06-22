@@ -1,3 +1,5 @@
+import actions from '../constants/actions';
+
 import React, { Component } from 'react';
 import numeral from 'numeral';
 
@@ -9,7 +11,7 @@ class Payment extends Component {
   render() {
     const { dispatch } = this.props;
     const onClick = (dispatch, amount) => {
-      dispatch({ type: 'INSERT_COIN', amount: amount})
+      dispatch({ type: actions.INSERT_COIN, amount: amount})
     };
     return (
       <div>

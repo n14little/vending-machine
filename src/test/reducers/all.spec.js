@@ -1,4 +1,5 @@
 import all from '../../main/reducers/all';
+import actions from '../../main/constants/actions';
 import chai from 'chai';
 
 chai.should();
@@ -29,7 +30,7 @@ test('should add new balance to current balance on coin insertion', () => {
   };
 
   const action = {
-    type: 'INSERT_COIN',
+    type: actions.INSERT_COIN,
     amount: 0.1
   };
 
@@ -39,7 +40,7 @@ test('should add new balance to current balance on coin insertion', () => {
 
 test('should handle when current a balance hasn\'t been added', () => {
   const action = {
-    type: 'INSERT_COIN',
+    type: actions.INSERT_COIN,
     amount: 0.05
   };
 

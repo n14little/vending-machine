@@ -1,4 +1,5 @@
 import Payment from '../../main/views/payment';
+import actions from '../../main/constants/actions';
 
 import React from 'react';
 import { shallow } from 'enzyme';
@@ -65,7 +66,7 @@ describe('Payment', () => {
     nickel.simulate('click');
 
     dispatch.should.have.been.calledWith({
-      type: 'INSERT_COIN',
+      type: actions.INSERT_COIN,
       amount: 0.05
     });
   });
@@ -75,7 +76,7 @@ describe('Payment', () => {
     dime.simulate('click');
 
     dispatch.should.have.been.calledWith({
-      type: 'INSERT_COIN',
+      type: actions.INSERT_COIN,
       amount: 0.1
     });
   });
@@ -85,7 +86,7 @@ describe('Payment', () => {
     quarter.simulate('click');
 
     dispatch.should.have.been.calledWith({
-      type: 'INSERT_COIN',
+      type: actions.INSERT_COIN,
       amount: 0.25
     });
   });
