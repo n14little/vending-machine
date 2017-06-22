@@ -19,19 +19,19 @@ test('cola button', () => {
   const cola = products.find('#cola');
 
   cola.should.have.lengthOf(1);
-  cola.text().should.equal('Cola');
+  cola.text().should.equal('Cola - $1.00');
 });
 
 test('chips button', () => {
   const chips = products.find('#chips');
 
   chips.should.have.lengthOf(1);
-  chips.text().should.equal('Chips');
+  chips.text().should.equal('Chips - $0.50');
 });
 
 test('candy button', () => {
   const candy = products.find('#candy');
 
   candy.should.have.lengthOf(1);
-  candy.text().should.equal('Candy');
+  candy.text().should.equal('Candy - $0.65');
 });
