@@ -30,7 +30,7 @@ test('should add new balance to current balance on coin insertion', () => {
   };
 
   const action = {
-    type: actions.INSERT_COIN,
+    type: actions.UPDATE_BALANCE,
     amount: 0.1
   };
 
@@ -40,7 +40,7 @@ test('should add new balance to current balance on coin insertion', () => {
 
 test('should handle when a current balance hasn\'t been added', () => {
   const action = {
-    type: actions.INSERT_COIN,
+    type: actions.UPDATE_BALANCE,
     amount: 0.05
   };
 

@@ -66,7 +66,7 @@ describe('CoinMachine', () => {
     nickel.simulate('click');
 
     dispatch.should.have.been.calledWith({
-      type: actions.INSERT_COIN,
+      type: actions.UPDATE_BALANCE,
       amount: 0.05
     });
   });
@@ -76,7 +76,7 @@ describe('CoinMachine', () => {
     dime.simulate('click');
 
     dispatch.should.have.been.calledWith({
-      type: actions.INSERT_COIN,
+      type: actions.UPDATE_BALANCE,
       amount: 0.1
     });
   });
@@ -86,7 +86,7 @@ describe('CoinMachine', () => {
     quarter.simulate('click');
 
     dispatch.should.have.been.calledWith({
-      type: actions.INSERT_COIN,
+      type: actions.UPDATE_BALANCE,
       amount: 0.25
     });
   });

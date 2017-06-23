@@ -12,7 +12,7 @@ const getCurrentBalance = (currentBalance) => {
 };
 
 const onClick = (dispatch, amount) => {
-  dispatch({ type: actions.INSERT_COIN, amount: amount})
+  dispatch({ type: actions.UPDATE_BALANCE, amount: amount})
 };
 
 const CoinMachine = (props) => {
