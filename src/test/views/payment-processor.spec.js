@@ -21,10 +21,7 @@ const items = {
 };
 
 test('should display THANK YOU result message when enough money is in machine', () => {
-  const purchase = items.cola;
-  const currentBalance = colaValue;
-
-  const paymentProcessor = shallow(<PaymentProcessor purchase={purchase} currentBalance={currentBalance}/>);
+  const paymentProcessor = shallow(<PaymentProcessor purchase={items.cola} currentBalance={colaValue}/>);
   const resultMessage = paymentProcessor.find('p');
 
   resultMessage.should.have.lengthOf(1);
@@ -32,10 +29,7 @@ test('should display THANK YOU result message when enough money is in machine', 
 });
 
 test('should display price of the item if not enough money in the machine', () => {
-  const purchase = items.chips;
-  const currentBalance = chipsValue - 0.1;
-
-  const paymentProcessor = shallow(<PaymentProcessor purchase={purchase} currentBalance={currentBalance}/>);
+  const paymentProcessor = shallow(<PaymentProcessor purchase={items.chips} currentBalance={chipsValue - 0.1}/>);
   const resultMessage = paymentProcessor.find('p');
 
   resultMessage.should.have.lengthOf(1);
@@ -43,11 +37,9 @@ test('should display price of the item if not enough money in the machine', () =
 });
 
 test('should include a button that dismisses dialog and removes the purchase from state when enough money', () => {
-  const purchase = items.chips;
-  const currentBalance = chipsValue;
   const dispatch = sandbox.stub();
 
-  const paymentProcessor = shallow(<PaymentProcessor purchase={purchase} currentBalance={currentBalance} dispatch={dispatch}/>);
+  const paymentProcessor = shallow(<PaymentProcessor purchase={items.chips} currentBalance={chipsValue} dispatch={dispatch}/>);
   const dismissButton = paymentProcessor.find('button[type="button"]');
 
   dismissButton.should.have.lengthOf(1);
