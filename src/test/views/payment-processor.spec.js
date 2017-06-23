@@ -35,3 +35,14 @@ test('should display price of the item if not enough money in the machine', () =
   resultMessage.should.have.lengthOf(1);
   resultMessage.text().should.equal('PRICE: $0.50');
 });
+
+test('should include a button that dismisses dialog and removes the purchase from state when enough money', () => {
+  const purchase = items.chips;
+  const currentBalance = chipsValue;
+
+  const paymentProcessor = shallow(<PaymentProcessor purchase={purchase} currentBalance={currentBalance} />);
+  const dismissButton = paymentProcessor.find('button[type="button"]');
+
+  dismissButton.should.have.lengthOf(1);
+  dismissButton.text().should.equal('OK');
+});

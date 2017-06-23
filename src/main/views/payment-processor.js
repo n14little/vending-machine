@@ -5,6 +5,7 @@ const PaymentProcessor = ({ purchase, currentBalance }) => {
   return (
     <div>
       <p>{purchase.value === currentBalance ? 'THANK YOU' : `PRICE: ${numeral(purchase.value).format('$0.00')}`}</p>
+      <button type="button">OK</button>
     </div>
   );
 };
