@@ -19,6 +19,9 @@ const reduce = (state = {}, action) => {
       return Object.assign({}, state, {
         currentBalance: 0
       });
+    case actions.NOT_ENOUGH_MONEY:
+      delete state.purchase;
+      return state;
     default:
       return state;
   }

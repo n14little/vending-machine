@@ -90,3 +90,21 @@ test('should remove purchase and reset balance when successful purchase', () => 
     currentBalance: 0
   });
 });
+
+test('should remove purchase when not enough money', () => {
+  const givenState = {
+    currentBalance: 0.25,
+    purchase: {
+      name: 'Chips',
+      value: 0.50
+    }
+  };
+  const action = {
+    type: actions.NOT_ENOUGH_MONEY
+  };
+
+  const actualState = all.reduce(givenState, action);
+  actualState.should.deep.equal({
+    currentBalance: 0.25
+  });
+});
