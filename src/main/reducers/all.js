@@ -14,6 +14,11 @@ const reduce = (state = {}, action) => {
           value: action.item.value
         }
       });
+    case actions.SUCCESSFUL_PURCHASE:
+      delete state.purchase;
+      return Object.assign({}, state, {
+        currentBalance: 0
+      });
     default:
       return state;
   }

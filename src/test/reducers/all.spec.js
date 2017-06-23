@@ -72,3 +72,21 @@ test('should handle when an item has been purchased', () => {
     }
   });
 });
+
+test('should remove purchase and reset balance when successful purchase', () => {
+  const givenState = {
+    currentBalance: 0.50,
+    purchase: {
+      name: 'Chips',
+      value: 0.50
+    }
+  };
+  const action = {
+    type: actions.SUCCESSFUL_PURCHASE
+  };
+
+  const actualState = all.reduce(givenState, action);
+  actualState.should.deep.equal({
+    currentBalance: 0
+  });
+});
