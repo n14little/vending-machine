@@ -9,19 +9,15 @@ import chai from 'chai';
 chai.should();
 const dispatch = 'fake dispatch';
 
-test('app should have a CoinMachine component', () => {
+test('app should have a CoinMachine component and products component when no purchase has been made (initial startup)', () => {
   const currentBalance = 0;
   const app = shallow(<App dispatch={dispatch} currentBalance={currentBalance}/>);
+  app.children().should.have.lengthOf(2);
   app.contains(<CoinMachine currentBalance={currentBalance} dispatch={dispatch}/>).should.equal(true);
-});
-
-test('app should have a Products component', () => {
-  const currentBalance = 0;
-  const app = shallow(<App dispatch={dispatch} currentBalance={currentBalance}/>);
   app.contains(<Products dispatch={dispatch}/>).should.equal(true);
 });
 
-test('app should have a PaymentProcessor component if a purchase has been made', () => {
+test('app should have a PaymentProcessor component if a purchase has been made, but not a coin machine or a product', () => {
   const purchase = {
     name: 'blah',
     value: 0.5
@@ -29,6 +25,7 @@ test('app should have a PaymentProcessor component if a purchase has been made',
   const currentBalance = 0.5;
 
   const app = shallow(<App dispatch={dispatch} purchase={purchase} currentBalance={currentBalance}/>);
+  app.children().should.have.lengthOf(1);
   app.contains(<PaymentProcessor purchase={purchase} currentBalance={currentBalance} dispatch={dispatch}/>).should.equal(true);
 });
 

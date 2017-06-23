@@ -6,9 +6,14 @@ import '../css/App.css';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-function getPaymentProcessor(purchase, currentBalance, dispatch) {
+function getContent(purchase, currentBalance, dispatch) {
   if (purchase) {
     return (<PaymentProcessor purchase={purchase} currentBalance={currentBalance} dispatch={dispatch}/>);
+  } else {
+    return ([
+      <Products dispatch={dispatch}/>,
+      <CoinMachine currentBalance={currentBalance} dispatch={dispatch}/>
+    ]);
   }
 }
 
@@ -17,9 +22,7 @@ export class App extends Component {
     const { currentBalance, dispatch, purchase } = this.props;
     return (
       <div className="App">
-        <Products dispatch={dispatch}/>
-        <CoinMachine currentBalance={currentBalance} dispatch={dispatch}/>
-        {getPaymentProcessor(purchase, currentBalance, dispatch)}
+        {getContent(purchase, currentBalance, dispatch)}
       </div>
     );
   }
