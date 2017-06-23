@@ -1,4 +1,4 @@
-import Payment from './views/payment';
+import CoinMachine from './views/coin-machine';
 import Products from './views/products';
 import '../css/App.css';
 
@@ -11,7 +11,7 @@ export class App extends Component {
     return (
       <div className="App">
         <Products dispatch={dispatch}/>
-        <Payment currentBalance={currentBalance} dispatch={dispatch}/>
+        <CoinMachine currentBalance={currentBalance} dispatch={dispatch}/>
       </div>
     );
   }

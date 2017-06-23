@@ -15,7 +15,7 @@ const onClick = (dispatch, amount) => {
   dispatch({ type: actions.INSERT_COIN, amount: amount})
 };
 
-const Payment = (props) => {
+const CoinMachine = (props) => {
   const { dispatch } = props;
   return (
     <div>
@@ -27,4 +27,4 @@ const Payment = (props) => {
   );
 };
 
-export default Payment;
+export default CoinMachine;
