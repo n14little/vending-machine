@@ -6,9 +6,9 @@ import '../css/App.css';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-function getPaymentProcessor(purchase, currentBalance) {
+function getPaymentProcessor(purchase, currentBalance, dispatch) {
   if (purchase) {
-    return (<PaymentProcessor purchase={purchase} currentBalance={currentBalance} />);
+    return (<PaymentProcessor purchase={purchase} currentBalance={currentBalance} dispatch={dispatch}/>);
   }
 }
 
@@ -19,7 +19,7 @@ export class App extends Component {
       <div className="App">
         <Products dispatch={dispatch}/>
         <CoinMachine currentBalance={currentBalance} dispatch={dispatch}/>
-        {getPaymentProcessor(purchase, currentBalance)}
+        {getPaymentProcessor(purchase, currentBalance, dispatch)}
       </div>
     );
   }
