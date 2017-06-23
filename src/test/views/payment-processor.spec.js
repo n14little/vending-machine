@@ -36,7 +36,7 @@ test('should display price of the item if not enough money in the machine', () =
   resultMessage.text().should.equal('PRICE: $0.50');
 });
 
-test('should include a button that dismisses dialog and removes the purchase from state when enough money', () => {
+test('should include a button that sends SUCCESSFUL_PURCHASE action when enough money', () => {
   const dispatch = sandbox.stub();
 
   const paymentProcessor = shallow(<PaymentProcessor purchase={items.chips} currentBalance={chipsValue} dispatch={dispatch}/>);
@@ -50,5 +50,22 @@ test('should include a button that dismisses dialog and removes the purchase fro
   dispatch.should.have.been.calledOnce;
   dispatch.should.have.been.calledWith({
     type: actions.SUCCESSFUL_PURCHASE,
+  });
+});
+
+test('should include a button that sends NOT_ENOUGH_MONEY', () => {
+  const dispatch = sandbox.stub();
+
+  const paymentProcessor = shallow(<PaymentProcessor dispatch={dispatch} purchase={items.cola} currentBalance={colaValue - 0.1}/>);
+  const dismissButton = paymentProcessor.find('button[type="button"]');
+
+  dismissButton.should.have.lengthOf(1);
+  dismissButton.text().should.equal('OK');
+
+  dismissButton.simulate('click');
+
+  dispatch.should.have.been.calledOnce;
+  dispatch.should.have.been.calledWith({
+    type: actions.NOT_ENOUGH_MONEY
   });
 });
