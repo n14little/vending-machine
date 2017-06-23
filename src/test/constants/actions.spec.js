@@ -13,3 +13,7 @@ test('should have PURCHASE', () => {
 test('should have SUCCESSFUL_PURCHASE', () => {
   actions.SUCCESSFUL_PURCHASE.should.equal('SUCCESSFUL_PURCHASE');
 });
+
+test('should have NOT_ENOUGH_MONEY', () => {
+  actions.NOT_ENOUGH_MONEY.should.equal('NOT_ENOUGH_MONEY');
+});
