@@ -87,7 +87,8 @@ test('should remove purchase and reset balance when successful purchase', () => 
 
   const actualState = all.reduce(givenState, action);
   actualState.should.deep.equal({
-    currentBalance: 0
+    currentBalance: 0,
+    purchase: undefined
   });
 });
 
@@ -105,6 +106,7 @@ test('should remove purchase when not enough money', () => {
 
   const actualState = all.reduce(givenState, action);
   actualState.should.deep.equal({
-    currentBalance: 0.25
+    currentBalance: 0.25,
+    purchase: undefined
   });
 });

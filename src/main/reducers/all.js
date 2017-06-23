@@ -15,13 +15,14 @@ const reduce = (state = {}, action) => {
         }
       });
     case actions.SUCCESSFUL_PURCHASE:
-      delete state.purchase;
       return Object.assign({}, state, {
-        currentBalance: 0
+        currentBalance: 0,
+        purchase: undefined
       });
     case actions.NOT_ENOUGH_MONEY:
-      delete state.purchase;
-      return state;
+      return Object.assign({}, state, {
+        purchase: undefined
+      });
     default:
       return state;
   }
